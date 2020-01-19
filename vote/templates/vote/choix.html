@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	{% include "vote/assets/headers.html" %}
+	<title>Page de vote</title>
+</head>
+{% if not a_vote %}
+<body>
+	<section style="background-color: coral;">
+		*up*
+	</section>
+	<section class="container-fluid">
+		{{ title.value|safe}}
+	</section>
+	<section class="container">
+		{% if not list_candidat %}
+			<h4>Pas d'élections !</h4>
+		{% endif %}
+		<form action="" method="post">
+			<div class="card-columns">
+				{% for c in list_candidat %}
+					<div class="card" type=button>
+						<div class="card-body">
+							<img src="../../{{ c.img.url|safe }}" style="max-height: 175px; max-width: 175px;">
+
+						</div>
+						<ul class="list-group list-group-flush">
+						    <li class="list-group-item">{{ c.nom }}</li>
+						    <li class="list-group-item">{{ c.prenom }}</li>
+						  </ul>
+						<div class="card-body">
+							<p> {{ c.description }} </p>
+						</div>
+						<div class="card-footer">
+							<small class="text-muted">Last updated 3 mins ago</small>
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+		</form>
+	</section>
+	<section style="background-color: coral;">
+		*down*
+	</section>
+</div>
+</body>
+{% elif a_vote %}
+<body>
+	<h1> à voté UwU </h1>
+</body>
+{% endif %}
+
+</html>

@@ -1,0 +1,27 @@
+<!-- ['HTMLTemplate']<!DOCTYPE html> -->
+<!DOCTYPE html>
+<html>
+<head>
+	{% include "vote/assets/headers.html" %}
+	<title>login</title>
+</head>
+<body>
+	<section class="container">
+		<div class="login">
+			<form method="POST">
+			    {% csrf_token %}
+			    {% block form.username.label_tag %}EEID{% endblock %}
+			    {{ form.username }}
+
+			    {% block form.password.label_tag %}Mot de passe{% endblock %}
+			    {{ form.password }}
+
+			    {{ form.errors }}
+			  
+			    <input type="submit" value="Se connecter">
+			</form>
+
+		</div>
+	</section>
+</body>
+</html>
