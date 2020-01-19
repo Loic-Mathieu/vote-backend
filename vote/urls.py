@@ -14,6 +14,7 @@ router = routers.DefaultRouter()
 router.register(r'candidats', views.TestViewSet)
 router.register(r'votes', views.VoteViewSet)
 router.register(r'utilisateurs', views.UserViewSet)
+router.register(r'dates', views.ConfigViewSet)
 
 
 urlpatterns = [

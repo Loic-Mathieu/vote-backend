@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from vote.models import Candidat, CandidatsNbVote, Etudiant
+from vote import models
 
 class TestSerializer(serializers.HyperlinkedModelSerializer):
 	class Meta:
@@ -20,6 +21,10 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
 		model = Etudiant
 		fields = ['id', 'username', 'groups', 'a_vote']
 
+class ConfigSerializer(serializers.HyperlinkedModelSerializer):
+	class Meta:
+		model = models.Config
+		fields = ['_active', '_start_date', '_end_date']
 
 """
 {

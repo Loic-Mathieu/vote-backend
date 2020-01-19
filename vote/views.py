@@ -1,9 +1,10 @@
-from .models import Candidat, HTMLTemplate, CandidatsNbVote, Etudiant
+from .models import Candidat, HTMLTemplate, CandidatsNbVote, Etudiant, Config
 
 from rest_framework import viewsets
 from vote.serializers import TestSerializer, VoteSerializer, UserSerializer
 
 from rest_framework.permissions import IsAuthenticated
+from vote import serializers
 
 
 #####
@@ -31,3 +32,8 @@ class UserViewSet(viewsets.ModelViewSet):
         if username is not None:
             queryset = queryset.filter(username=username)
         return queryset
+
+class ConfigViewSet(viewsets.ModelViewSet):
+    queryset = Config.objects.all()
+    serializer_class = serializers.ConfigSerializer
+    # permission_classes = (IsAuthenticated,)
