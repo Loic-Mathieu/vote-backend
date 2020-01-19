@@ -145,8 +145,8 @@ LOGIN_URL = '/vote/'
 LOGIN_REDIRECT_URL='/vote/choix/'
 AUTH_USER_MODEL = 'vote.Etudiant' # custom user
 
-MEDIA_URL = 'upload/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'upload')
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
